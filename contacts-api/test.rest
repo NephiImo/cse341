@@ -1,0 +1,12 @@
+### Local - Home route
+GET http://localhost:8080/
+
+###
+
+### Local - Get all contacts
+GET http://localhost:8080/contacts
+
+###
+
+### Local - Get one contact by ID
+GET http://localhost:8080/contacts/6a47d82c3e9e768bc8ddd374
