@@ -1,12 +1,26 @@
-### Local - Home route
-GET https://cse341-ujj4.onrender.com
+### Local - Home
+GET http://localhost:8080/
 
 ###
 
 ### Local - Get all contacts
+GET http://localhost:8080/contacts
+
+###
+
+### Local - Get one contact
+GET http://localhost:8080/contacts/6a47d82c3e9e768bc8ddd374
+
+
+### Render - Home 
+GET https://cse341-ujj4.onrender.com
+
+###
+
+### Render - Get all contacts
 GET https://cse341-ujj4.onrender.com/contacts
 
 ###
 
-### Local - Get one contact by ID
+### Render - Get one contact by ID
 GET https://cse341-ujj4.onrender.com/contacts/6a47d82c3e9e768bc8ddd374
