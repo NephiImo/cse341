@@ -5,10 +5,16 @@
     "description": "API documentation for CSE341 Contacts Project",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
-  "basePath": "/",
+  "host": "cse341-ujj4.onrender.com",
+  "basePath": "/contacts",
+  "tags": [
+    {
+      "name": "Contacts",
+      "description": "Contact management endpoints"
+    }
+  ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
@@ -168,6 +174,33 @@
           "500": {
             "description": "Internal Server Error"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Nephi"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Imo"
+        },
+        "email": {
+          "type": "string",
+          "example": "nephi@example.com"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Blue"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "2003-01-01"
         }
       }
     }
