@@ -1,3 +1,5 @@
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger.json");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -16,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/contacts", contactsRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 mongodb.initDb((err) => {
   if (err) {

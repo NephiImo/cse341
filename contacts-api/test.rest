@@ -1,19 +1,55 @@
-### Local - Home
-GET http://localhost:8080/
-
-###
-
 ### Local - Get all contacts
 GET http://localhost:8080/contacts
 
 ###
 
-### Local - Get one contact
+### Local - Get one contact by ID
 GET http://localhost:8080/contacts/6a47d82c3e9e768bc8ddd374
 
+###
 
-### Render - Home 
-GET https://cse341-ujj4.onrender.com
+### Local - Create a new contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+      "firstName": "Max",
+      "lastName": "Noi",
+      "email": "max@example.com",
+      "favoriteColor": "Blue",
+      "birthday": "2003-01-01"
+}
+
+### Create contact 2
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Michael",
+  "lastName": "Brown",
+  "email": "michael.brown@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1995-09-25"
+}
+
+###
+
+### Local - Update a contact by ID
+PUT http://localhost:8080/contacts/PASTE_ID_HERE
+Content-Type: application/json
+
+{
+      "firstName": "Max",
+      "lastName": "Noi-Updated",
+      "email": "max.updated@example.com",
+      "favoriteColor": "Green",
+      "birthday": "2003-01-01"
+}
+
+###
+
+### Local - Delete a contact by ID
+DELETE http://localhost:8080/contacts/PASTE_ID_HERE
 
 ###
 
@@ -24,3 +60,36 @@ GET https://cse341-ujj4.onrender.com/contacts
 
 ### Render - Get one contact by ID
 GET https://cse341-ujj4.onrender.com/contacts/6a47d82c3e9e768bc8ddd374
+
+###
+
+### Render - Create a new contact
+POST https://cse341-ujj4.onrender.com/contacts
+Content-Type: application/json
+
+{
+      "firstName": "Render",
+      "lastName": "Test",
+      "email": "render.test@example.com",
+      "favoriteColor": "Purple",
+      "birthday": "2000-05-15"
+}
+
+###
+
+### Render - Update a contact by ID
+PUT https://cse341-ujj4.onrender.com/contacts/PASTE_ID_HERE
+Content-Type: application/json
+
+{
+      "firstName": "Render",
+      "lastName": "Updated",
+      "email": "render.updated@example.com",
+      "favoriteColor": "Orange",
+      "birthday": "2000-05-15"
+}
+
+###
+
+### Render - Delete a contact by ID
+DELETE https://cse341-ujj4.onrender.com/contacts/PASTE_ID_HERE
