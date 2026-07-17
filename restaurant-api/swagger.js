@@ -7,8 +7,8 @@ const doc = {
       "API documentation for managing restaurant menu items and customer orders"
   },
 
-  host: "localhost:8082",
-  schemes: ["http"],
+  host: "cse341-1-y58p.onrender.com",
+  schemes: ["https"],
 
   tags: [
     {
