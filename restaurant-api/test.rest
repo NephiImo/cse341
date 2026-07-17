@@ -1,0 +1,151 @@
+@baseUrl = http://localhost:8082
+@menuItemId = 6a5a14fe44b7858a9aac6d3b
+
+### Root route
+GET {{baseUrl}}
+
+
+### Get all menu items
+GET {{baseUrl}}/menu-items
+
+
+### Create a menu item
+POST {{baseUrl}}/menu-items
+Content-Type: application/json
+
+{
+  "name": "Jollof Rice and Chicken",
+  "description": "Smoky Nigerian jollof rice served with grilled chicken",
+  "category": "Main Meal",
+  "price": 4500,
+  "available": true,
+  "prepTimeMinutes": 25,
+  "ingredients": [
+    "rice",
+    "tomatoes",
+    "pepper",
+    "onions",
+    "chicken"
+  ],
+  "imageUrl": "https://example.com/jollof-rice.jpg"
+}
+
+
+### Get one menu item by ID
+GET {{baseUrl}}/menu-items/{{menuItemId}}
+
+
+### Update a menu item
+PUT {{baseUrl}}/menu-items/{{menuItemId}}
+Content-Type: application/json
+
+{
+  "name": "Jollof Rice and Grilled Chicken",
+  "description": "Smoky Nigerian jollof rice served with seasoned grilled chicken",
+  "category": "Main Meal",
+  "price": 5000,
+  "available": true,
+  "prepTimeMinutes": 30,
+  "ingredients": [
+    "rice",
+    "tomatoes",
+    "pepper",
+    "chicken"
+  ],
+  "imageUrl": "https://example.com/jollof-rice-updated.jpg"
+}
+
+
+### Delete a menu item
+DELETE {{baseUrl}}/menu-items/{{menuItemId}}
+
+
+### Validation test - invalid menu item
+POST {{baseUrl}}/menu-items
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": "",
+  "category": "Main Meal",
+  "price": -500,
+  "available": "yes",
+  "prepTimeMinutes": 0,
+  "ingredients": [],
+  "imageUrl": ""
+}
+
+
+### Invalid MongoDB ID test
+GET {{baseUrl}}/menu-items/not-a-valid-id
+
+
+
+###Order Routes
+@orderId = 6a5a1dfa76d61ffe073a7ea2
+
+### Get all orders
+GET {{baseUrl}}/orders
+
+
+### Create an order
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "customerName": "Nephi Imo",
+  "customerPhone": "08012345678",
+  "items": [
+    "Jollof Rice and Chicken",
+    "Bottled Water"
+  ],
+  "totalAmount": 5000,
+  "status": "pending",
+  "deliveryAddress": "Ikeja, Lagos",
+  "orderDate": "2026-07-17"
+}
+
+
+### Get one order
+GET {{baseUrl}}/orders/{{orderId}}
+
+
+### Update an order
+PUT {{baseUrl}}/orders/{{orderId}}
+Content-Type: application/json
+
+{
+  "customerName": "Nephi Imo",
+  "customerPhone": "08012345678",
+  "items": [
+    "Jollof Rice and Chicken",
+    "Bottled Water"
+  ],
+  "totalAmount": 5000,
+  "status": "confirmed",
+  "deliveryAddress": "Ikeja, Lagos",
+  "orderDate": "2026-07-17"
+}
+
+
+### Delete an order
+DELETE {{baseUrl}}/orders/{{orderId}}
+
+
+### Validation test - invalid order
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "customerName": "",
+  "customerPhone": "",
+  "items": [],
+  "totalAmount": -100,
+  "status": "unknown",
+  "deliveryAddress": "",
+  "orderDate": ""
+}
+
+
+### Invalid MongoDB order ID
+GET {{baseUrl}}/orders/not-a-valid-id
