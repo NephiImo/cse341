@@ -1,3 +1,4 @@
+const { requireAuth } = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
@@ -57,7 +58,7 @@ router.get("/:id", ordersController.getOrderById);
     description: 'Validation failed'
   }
 */
-router.post("/", ordersController.createOrder);
+router.post("/", requireAuth, ordersController.createOrder);
 
 /*
   #swagger.tags = ['Orders']
@@ -92,7 +93,7 @@ router.post("/", ordersController.createOrder);
     description: 'Order not found'
   }
 */
-router.put("/:id", ordersController.updateOrder);
+router.put("/:id", requireAuth, ordersController.updateOrder);
 
 /*
   #swagger.tags = ['Orders']
@@ -113,6 +114,6 @@ router.put("/:id", ordersController.updateOrder);
     description: 'Order not found'
   }
 */
-router.delete("/:id", ordersController.deleteOrder);
+router.delete("/:id", requireAuth, ordersController.deleteOrder);
 
 module.exports = router;

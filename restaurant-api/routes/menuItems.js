@@ -1,3 +1,4 @@
+const { requireAuth } = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
@@ -58,7 +59,7 @@ router.get("/:id", menuItemsController.getMenuItemById);
     description: 'Validation failed'
   }
 */
-router.post("/", menuItemsController.createMenuItem);
+router.post("/", requireAuth, menuItemsController.createMenuItem);
 
 /*
   #swagger.tags = ['Menu Items']
@@ -94,7 +95,7 @@ router.post("/", menuItemsController.createMenuItem);
     description: 'Menu item not found'
   }
 */
-router.put("/:id", menuItemsController.updateMenuItem);
+router.put("/:id", requireAuth, menuItemsController.updateMenuItem);
 
 /*
   #swagger.tags = ['Menu Items']
@@ -115,6 +116,6 @@ router.put("/:id", menuItemsController.updateMenuItem);
     description: 'Menu item not found'
   }
 */
-router.delete("/:id", menuItemsController.deleteMenuItem);
+router.delete("/:id", requireAuth, menuItemsController.deleteMenuItem);
 
 module.exports = router;
